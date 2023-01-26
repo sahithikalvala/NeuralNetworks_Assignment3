@@ -1,0 +1,60 @@
+class Employee:
+    no_of_employees = 0
+
+    def __init__(self, name, family_name, salary, department):
+        self.__name = name
+        self.__family_name = family_name
+        self.salary = salary
+        self.__department = department
+        Employee.no_of_employees += 1
+
+
+    def average_salary(employees):
+        sum = 0
+        for employee in employees:
+            sum += employee.salary
+        return sum / Employee.no_of_employees
+
+
+
+class FulltimeEmployee(Employee):
+
+    def __init__(self, name, family_name, salary, department):
+        super().__init__(name, family_name, salary, department)
+
+    def full_time_benefits(self):
+        print("full time employee Benefits.")
+
+
+def main():
+    employees = []
+    fte1 = FulltimeEmployee("E1", "Family1", 200000, "CSE")
+    fte1.full_time_benefits()
+    employees.append(fte1)
+    fte2 = FulltimeEmployee("E2", "Family2", 100000, "IT")
+    employees.append(fte2)
+    emp1 = Employee("E3", "Family3", 250000, "CIS")
+    employees.append(emp1)
+    emp2 = Employee("E4", "Family4", 300000, "BD")
+    employees.append(emp2)
+    print("Average salary:", FulltimeEmployee.average_salary(employees))
+
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+import numpy as np
+r = np.random.uniform(1,20,20)
+print("Original")
+print(r)
+r=np.reshape(r,(4,5))
+print(r)
+print(np.shape(r))
+maxNum = np.amax(r, axis=1)
+r=np.where(np.isin(r,maxNum), 0, r)
+print("Maximum value")
+print(r)
